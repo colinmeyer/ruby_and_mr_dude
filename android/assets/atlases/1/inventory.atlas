@@ -1,0 +1,13 @@
+
+inventory.png
+size: 378,249
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hay
+  rotate: false
+  xy: 1, 1
+  size: 376, 247
+  orig: 400, 349
+  offset: 2, 42
+  index: -1

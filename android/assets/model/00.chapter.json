@@ -16,6 +16,39 @@ scenes: {
 			}
 		],
 		actors: {
+			hay_bundle: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "hay_bundle",
+				bbox: [ -200, 0, -200, 349, 200, 349, 200, 0 ],
+				pos: {},
+				visible: false,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						hay: {
+							id: "hay",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "hay"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
 			factory: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
 				id: "factory",
@@ -72,6 +105,12 @@ scenes: {
 						icon: null,
 						actions: [
 							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "hay",
+								wait: true
+							},
+							{
 								class: "com.bladecoder.engine.actions.TextAction",
 								text: "@map.hay.pickup.empty.0.text",
 								style: "default",
@@ -87,6 +126,17 @@ scenes: {
 						state: "full",
 						icon: null,
 						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "hay",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#hay_bundle",
+								animation: "hay"
+							},
 							{
 								class: "com.bladecoder.engine.actions.TextAction",
 								text: "@map.hay.pickup.0.text",
@@ -289,8 +339,8 @@ scenes: {
 		polygonalNavGraph: {
 			walkZone: {
 				localVertices: [ 629.2677, 198.82808, 757.8795, 1767.9641, 3835.7988, 1769.3207, 3831.5984, 75.61542 ],
-				x: -22.872192,
-				y: -43.355988
+				x: -222.8739,
+				y: -71.59088
 			}
 		},
 		verbs: {
