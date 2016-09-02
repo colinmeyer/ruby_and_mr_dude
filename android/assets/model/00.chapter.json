@@ -1,5 +1,5 @@
 {
-bladeEngineVersion: null,
+bladeEngineVersion: "0.9.17",
 scenes: {
 	map: {
 		id: "map",
@@ -65,6 +65,59 @@ scenes: {
 				sounds: null,
 				refPoint: {},
 				verbs: {
+					"pickup.empty": {
+						id: "pickup",
+						target: null,
+						state: "empty",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.hay.pickup.empty.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.full": {
+						id: "pickup",
+						target: null,
+						state: "full",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.hay.pickup.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#hay",
+								state: "empty"
+							}
+						]
+					},
+					"lookat.empty": {
+						id: "lookat",
+						target: null,
+						state: "empty",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.hay.lookat.empty.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
 					"lookat.full": {
 						id: "lookat",
 						target: null,
