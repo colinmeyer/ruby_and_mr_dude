@@ -1,0 +1,153 @@
+
+mrdude.png
+size: 2694,718
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+stand.left
+  rotate: false
+  xy: 1, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 0
+talk.left
+  rotate: false
+  xy: 1, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 0
+walk.left
+  rotate: false
+  xy: 1, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 10
+walk.left
+  rotate: false
+  xy: 1, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 0
+stand.left
+  rotate: false
+  xy: 1015, 2
+  size: 336, 356
+  orig: 350, 400
+  offset: 12, 26
+  index: 1
+stand.left
+  rotate: false
+  xy: 1015, 2
+  size: 336, 356
+  orig: 350, 400
+  offset: 12, 26
+  index: 3
+stand.left
+  rotate: false
+  xy: 1691, 26
+  size: 336, 344
+  orig: 350, 400
+  offset: 12, 38
+  index: 2
+talk.left
+  rotate: false
+  xy: 1, 1
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 1
+talk.left
+  rotate: false
+  xy: 339, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 2
+talk.left
+  rotate: false
+  xy: 339, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 4
+talk.left
+  rotate: false
+  xy: 339, 1
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 3
+talk.left
+  rotate: false
+  xy: 677, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 5
+walk.left
+  rotate: false
+  xy: 677, 1
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 7
+walk.left
+  rotate: false
+  xy: 677, 1
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 9
+walk.left
+  rotate: false
+  xy: 1015, 360
+  size: 336, 357
+  orig: 350, 400
+  offset: 12, 26
+  index: 8
+walk.left
+  rotate: false
+  xy: 1353, 361
+  size: 336, 356
+  orig: 350, 400
+  offset: 12, 26
+  index: 5
+walk.left
+  rotate: false
+  xy: 1353, 3
+  size: 336, 356
+  orig: 350, 400
+  offset: 12, 26
+  index: 6
+walk.left
+  rotate: false
+  xy: 1691, 372
+  size: 336, 345
+  orig: 350, 400
+  offset: 12, 38
+  index: 1
+walk.left
+  rotate: false
+  xy: 2029, 373
+  size: 336, 344
+  orig: 350, 400
+  offset: 12, 38
+  index: 4
+walk.left
+  rotate: false
+  xy: 2029, 26
+  size: 326, 345
+  orig: 350, 400
+  offset: 22, 38
+  index: 2
+walk.left
+  rotate: false
+  xy: 2367, 373
+  size: 326, 344
+  orig: 350, 400
+  offset: 22, 38
+  index: 3

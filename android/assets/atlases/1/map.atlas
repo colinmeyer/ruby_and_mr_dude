@@ -1,0 +1,13 @@
+
+map.png
+size: 3842,2162
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+map_redone
+  rotate: false
+  xy: 1, 1
+  size: 3840, 2160
+  orig: 3840, 2160
+  offset: 0, 0
+  index: -1

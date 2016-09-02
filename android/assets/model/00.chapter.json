@@ -1,0 +1,263 @@
+{
+bladeEngineVersion: null,
+scenes: {
+	map: {
+		id: "map",
+		layers: [
+			{
+				name: "foreground"
+			},
+			{
+				name: "dynamic",
+				dynamic: true
+			},
+			{
+				name: "background"
+			}
+		],
+		actors: {
+			factory: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "factory",
+				bbox: [ -100, 0, -100, 200, 79.24695, 441.65076, 174.85913, 169.50177, 144.36096, -27.725647 ],
+				pos: {
+					x: 756.1537,
+					y: 504.10248
+				},
+				visible: true,
+				desc: "@map.factory.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			sand: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "sand",
+				bbox: [ 13.675049, -285.57385, -33.458496, 183.36426, 91.68225, 177.81934, 136.04333, -274.48364 ],
+				pos: {
+					x: 537.7091,
+					y: 1919.7898
+				},
+				visible: true,
+				desc: "@map.sand.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			hay: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "hay",
+				bbox: [ -100, 0, -22.368286, 213.86285, 271.89893, 152.86633, 235.85547, 0 ],
+				pos: {
+					x: 1566.9182,
+					y: 218.44437
+				},
+				visible: true,
+				desc: "@map.hay.desc_",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"lookat.full": {
+						id: "lookat",
+						target: null,
+						state: "full",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.hay.lookat.full.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: "full",
+				zIndex: 0,
+				layer: "foreground"
+			},
+			mrdude: {
+				class: "com.bladecoder.engine.model.CharacterActor",
+				id: "mrdude",
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				pos: {
+					x: 2576.804,
+					y: 1512.3071
+				},
+				visible: true,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"stand.left": {
+							id: "stand.left",
+							source: "mrdude",
+							duration: 5,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"talk.left": {
+							id: "talk.left",
+							source: "mrdude",
+							duration: 1,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"walk.left": {
+							id: "walk.left",
+							source: "mrdude",
+							duration: 0.5,
+							animationType: "REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "stand.left"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true,
+				dialogs: null,
+				walkingSpeed: 1000,
+				textColor: null
+			},
+			forest: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "forest",
+				bbox: [ -100, 0, -63.38379, 257.34668, 229.93506, 898.6858, 375.17163, 942.0741, 414.0265, 827.5547, 538.5663, 837.0515, 690.22925, 618.14453, 863.3485, -16.630371, 762.64246, -182.61377, 576.8546, -196.19598, 480.495, -281.5683, 421.6172, -182.9892 ],
+				pos: {
+					x: 1197.2434,
+					y: 1092.2218
+				},
+				visible: true,
+				desc: "@map.forest.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			city: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "city",
+				bbox: [ -100, 0, -77.819336, 305.35736, 288.77856, 323.8709, 327.3501, 460.6211, 751.64355, 597.71826, 979.04565, 408.8614, 1003.9358, 138.12152, 1428.7864, 179.36362, 1436.375, -224.57751, 1134.55, -301.03326 ],
+				pos: {
+					x: 2398.267,
+					y: 377.06866
+				},
+				visible: true,
+				desc: "@map.city.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			home: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "home",
+				bbox: [ -95.79907, 10.502075, -127.305664, 571.7755, 125.35669, 828.26807, 304.5205, 556.71106, 312.14307, 382.73706, 310.04248, 33.60669 ],
+				pos: {
+					x: 3072,
+					y: 1308.6495
+				},
+				visible: true,
+				desc: "@map.home.desc_",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"lookat.locked": {
+						id: "lookat",
+						target: null,
+						state: "locked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.home.lookat.locked.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.locked": {
+						id: "pickup",
+						target: null,
+						state: "locked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.home.enter.locked.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: "locked",
+				zIndex: 0,
+				layer: "foreground"
+			}
+		},
+		backgroundAtlas: "map",
+		backgroundRegionId: "map_redone",
+		musicDesc: null,
+		polygonalNavGraph: {
+			walkZone: {
+				localVertices: [ 629.2677, 198.82808, 757.8795, 1767.9641, 3835.7988, 1769.3207, 3831.5984, 75.61542 ],
+				x: -22.872192,
+				y: -43.355988
+			}
+		},
+		verbs: {
+			init: {
+				id: "init",
+				target: null,
+				state: null,
+				icon: null,
+				actions: [
+					{
+						class: "com.bladecoder.engine.actions.CameraAction",
+						pos: "1920.0,1080.0",
+						followActor: "mrdude",
+						wait: true
+					}
+				]
+			}
+		},
+		player: "mrdude"
+	}
+},
+initScene: "map"
+}
