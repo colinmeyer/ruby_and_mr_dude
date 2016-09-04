@@ -20,12 +20,23 @@ scenes: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "hay_bundle",
 				bbox: [ -200, 0, -200, 349, 200, 349, 200, 0 ],
-				pos: {},
+				pos: {
+					x: -23.104797,
+					y: -226.84613
+				},
 				visible: false,
 				desc: null,
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					"use.city_trading_house": {
+						id: "use",
+						target: "city_trading_house",
+						state: null,
+						icon: null,
+						actions: []
+					}
+				},
 				interaction: false,
 				state: null,
 				zIndex: 0,
@@ -94,7 +105,7 @@ scenes: {
 					y: 218.44437
 				},
 				visible: true,
-				desc: "@map.hay.desc_",
+				desc: "@map.hay.desc__",
 				sounds: null,
 				refPoint: {},
 				verbs: {
@@ -195,8 +206,8 @@ scenes: {
 				id: "mrdude",
 				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
-					x: 2576.804,
-					y: 1512.3071
+					x: 2332.2888,
+					y: 1241.8583
 				},
 				visible: true,
 				desc: null,
@@ -263,19 +274,54 @@ scenes: {
 				zIndex: 0,
 				layer: "foreground"
 			},
-			city: {
+			city_work: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
-				id: "city",
-				bbox: [ -100, 0, -77.819336, 305.35736, 288.77856, 323.8709, 327.3501, 460.6211, 751.64355, 597.71826, 979.04565, 408.8614, 1003.9358, 138.12152, 1428.7864, 179.36362, 1436.375, -224.57751, 1134.55, -301.03326 ],
+				id: "city_work",
+				bbox: [ -100, 0, -77.819336, 305.35736, 288.77856, 323.8709, 327.3501, 460.6211, 751.64355, 597.71826, 979.04565, 408.8614, 1003.9358, 138.12152, 925.23, -262.13315 ],
 				pos: {
 					x: 2398.267,
 					y: 377.06866
 				},
 				visible: true,
-				desc: "@map.city.desc",
+				desc: "@map.city_work.desc",
 				sounds: null,
 				refPoint: {},
 				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			city_trading_house: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "city_trading_house",
+				bbox: [ -108.33569, 55.571655, -77.771484, 190.7381, 84.254395, 161.09985, 103.704834, 18.523865 ],
+				pos: {
+					x: 3533.57,
+					y: 331.18442
+				},
+				visible: true,
+				desc: "@map.city_trading_house.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_trading_house.lookat.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
 				interaction: true,
 				state: null,
 				zIndex: 0,
@@ -339,8 +385,8 @@ scenes: {
 		polygonalNavGraph: {
 			walkZone: {
 				localVertices: [ 629.2677, 198.82808, 757.8795, 1767.9641, 3835.7988, 1769.3207, 3831.5984, 75.61542 ],
-				x: -222.8739,
-				y: -71.59088
+				x: -73.069336,
+				y: -23.751099
 			}
 		},
 		verbs: {
