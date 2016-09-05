@@ -1,27 +1,55 @@
 
 inventory.png
-size: 876,394
+size: 1144,1162
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 00 hay
   rotate: false
-  xy: 276, 146
+  xy: 479, 21
   size: 376, 247
   orig: 400, 349
   offset: 2, 42
   index: -1
 01 ticket
   rotate: false
-  xy: 654, 74
+  xy: 907, 448
   size: 221, 319
   orig: 252, 378
   offset: 0, 17
   index: -1
 02 money
   rotate: false
-  xy: 1, 1
+  xy: 870, 769
   size: 273, 392
   orig: 346, 506
   offset: 16, 38
+  index: -1
+03 fishingpole
+  rotate: false
+  xy: 479, 270
+  size: 426, 348
+  orig: 490, 418
+  offset: 47, 41
+  index: -1
+bag
+  rotate: false
+  xy: 1, 620
+  size: 867, 541
+  orig: 886, 678
+  offset: 0, 39
+  index: -1
+carrot
+  rotate: false
+  xy: 1, 205
+  size: 476, 413
+  orig: 500, 438
+  offset: 11, 25
+  index: -1
+key
+  rotate: false
+  xy: 1, 1
+  size: 367, 202
+  orig: 400, 253
+  offset: 22, 27
   index: -1

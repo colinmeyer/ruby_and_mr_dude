@@ -215,24 +215,6 @@ scenes: {
 				zIndex: 0,
 				layer: "foreground"
 			},
-			sand: {
-				class: "com.bladecoder.engine.model.InteractiveActor",
-				id: "sand",
-				bbox: [ 13.675049, -285.57385, -33.458496, 183.36426, 91.68225, 177.81934, 136.04333, -274.48364 ],
-				pos: {
-					x: 537.7091,
-					y: 1919.7898
-				},
-				visible: true,
-				desc: "@map.sand.desc",
-				sounds: null,
-				refPoint: {},
-				verbs: {},
-				interaction: true,
-				state: null,
-				zIndex: 0,
-				layer: "foreground"
-			},
 			hay: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
 				id: "hay",
@@ -338,61 +320,6 @@ scenes: {
 				zIndex: 0,
 				layer: "foreground"
 			},
-			mrdude: {
-				class: "com.bladecoder.engine.model.CharacterActor",
-				id: "mrdude",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
-				pos: {
-					x: 2332.2888,
-					y: 1230.7682
-				},
-				visible: true,
-				desc: null,
-				sounds: null,
-				refPoint: {},
-				verbs: {},
-				interaction: false,
-				state: null,
-				zIndex: 0,
-				layer: "foreground",
-				renderer: {
-					class: "com.bladecoder.engine.model.AtlasRenderer",
-					fanims: {
-						"stand.left": {
-							id: "stand.left",
-							source: "mrdude",
-							duration: 5,
-							animationType: "YOYO",
-							count: -1,
-							preload: true
-						},
-						"talk.left": {
-							id: "talk.left",
-							source: "mrdude",
-							duration: 1,
-							animationType: "YOYO",
-							count: -1,
-							preload: true
-						},
-						"walk.left": {
-							id: "walk.left",
-							source: "mrdude",
-							duration: 0.5,
-							animationType: "REPEAT",
-							count: -1,
-							preload: true
-						}
-					},
-					initAnimation: "stand.left"
-				},
-				scale: 1,
-				tint: null,
-				depthType: "NONE",
-				bboxFromRenderer: true,
-				dialogs: {},
-				walkingSpeed: 1000,
-				textColor: null
-			},
 			forest: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
 				id: "forest",
@@ -459,6 +386,78 @@ scenes: {
 				state: "unpassable",
 				zIndex: 0,
 				layer: "foreground"
+			},
+			mrdude: {
+				class: "com.bladecoder.engine.model.CharacterActor",
+				id: "mrdude",
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				pos: {
+					x: 2332.2888,
+					y: 1230.7682
+				},
+				visible: true,
+				desc: "@map.mrdude.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"lookat.hungry": {
+						id: "lookat",
+						target: null,
+						state: "hungry",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.mrdude.lookat.hungry.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: false,
+				state: "hungry",
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"stand.left": {
+							id: "stand.left",
+							source: "mrdude",
+							duration: 5,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"talk.left": {
+							id: "talk.left",
+							source: "mrdude",
+							duration: 1,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"walk.left": {
+							id: "walk.left",
+							source: "mrdude",
+							duration: 0.5,
+							animationType: "REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "stand.left"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true,
+				dialogs: {},
+				walkingSpeed: 1000,
+				textColor: null
 			},
 			ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
@@ -527,6 +526,244 @@ scenes: {
 				depthType: "NONE",
 				bboxFromRenderer: true
 			},
+			housekey: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "housekey",
+				bbox: [ -200, 0, -200, 253, 200, 253, 200, 0 ],
+				pos: {
+					x: 2061.483,
+					y: -308.7312
+				},
+				visible: false,
+				desc: "@map.housekey.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.housekey.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.home": {
+						id: "use",
+						target: "home",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#home",
+								attr: "STATE",
+								value: "locked",
+								caID: "2046501563"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#home",
+								state: "unlocked"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.housekey.use.home.2.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "2046501563"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#home",
+								state: "locked"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.housekey.use.home.5.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "2046501563"
+							}
+						]
+					}
+				},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						key: {
+							id: "key",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "key"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
+			city_trading_house: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "city_trading_house",
+				bbox: [ -108.33569, 55.571655, -77.771484, 190.7381, 84.254395, 161.09985, 103.704834, 18.523865 ],
+				pos: {
+					x: 3533.57,
+					y: 331.18442
+				},
+				visible: true,
+				desc: "@map.city_trading_house.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_trading_house.lookat.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_trading_house.pickup.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			home: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "home",
+				bbox: [ -95.79907, 10.502075, -127.305664, 571.7755, 125.35669, 828.26807, 304.5205, 556.71106, 312.14307, 382.73706, 310.04248, 33.60669 ],
+				pos: {
+					x: 3072,
+					y: 1308.6495
+				},
+				visible: true,
+				desc: "@map.home.desc_",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"lookat.locked": {
+						id: "lookat",
+						target: null,
+						state: "locked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.home.lookat.locked.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"lookat.unlocked": {
+						id: "lookat",
+						target: null,
+						state: "unlocked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.home.lookat.unlocked.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.locked": {
+						id: "pickup",
+						target: null,
+						state: "locked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.home.enter.locked.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: "locked",
+				zIndex: 0,
+				layer: "foreground"
+			},
+			sand: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "sand",
+				bbox: [ 13.675049, -285.57385, -33.458496, 183.36426, 91.68225, 177.81934, 136.04333, -274.48364 ],
+				pos: {
+					x: 537.7091,
+					y: 1919.7898
+				},
+				visible: true,
+				desc: "@map.sand.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
 			money: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "money",
@@ -536,16 +773,102 @@ scenes: {
 					y: -532.33203
 				},
 				visible: false,
-				desc: null,
+				desc: "@map.money.desc",
 				sounds: null,
 				refPoint: {},
 				verbs: {
-					use: {
+					"use.farmhouse": {
 						id: "use",
-						target: null,
+						target: "farmhouse",
 						state: null,
 						icon: null,
-						actions: []
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#forest",
+								attr: "STATE",
+								value: "passable",
+								caID: "1191443121"
+							},
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#$PLAYER",
+								attr: "STATE",
+								value: "hungry",
+								caID: "406643366"
+							},
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#carrot",
+								attr: "IN_INVENTORY",
+								value: "true",
+								caID: "506440116"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.money.use.farmhouse.3.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "506440116"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.money.use.farmhouse.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.DropItemAction",
+								actor: "money"
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#carrot"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "506440116"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "406643366"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.money.use.farmhouse.6.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "406643366"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1191443121"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.money.use.farmhouse.2.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1191443121"
+							}
+						]
 					}
 				},
 				interaction: false,
@@ -662,16 +985,16 @@ scenes: {
 				zIndex: 0,
 				layer: "foreground"
 			},
-			city_trading_house: {
-				class: "com.bladecoder.engine.model.InteractiveActor",
-				id: "city_trading_house",
-				bbox: [ -108.33569, 55.571655, -77.771484, 190.7381, 84.254395, 161.09985, 103.704834, 18.523865 ],
+			carrot: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "carrot",
+				bbox: [ -250, 0, -250, 438, 250, 438, 250, 0 ],
 				pos: {
-					x: 3533.57,
-					y: 331.18442
+					x: 1528.5566,
+					y: -489.3797
 				},
-				visible: true,
-				desc: "@map.city_trading_house.desc",
+				visible: false,
+				desc: null,
 				sounds: null,
 				refPoint: {},
 				verbs: {
@@ -682,10 +1005,10 @@ scenes: {
 						icon: null,
 						actions: [
 							{
-								class: "com.bladecoder.engine.actions.TextAction",
-								text: "@map.city_trading_house.lookat.0.text",
-								style: "default",
-								type: "SUBTITLE",
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.carrot.lookat.0.text",
+								type: "TALK",
 								queue: false,
 								wait: true
 							}
@@ -698,71 +1021,39 @@ scenes: {
 						icon: null,
 						actions: [
 							{
-								class: "com.bladecoder.engine.actions.TextAction",
-								text: "@map.city_trading_house.pickup.0.text",
-								style: "default",
-								type: "SUBTITLE",
-								queue: false,
-								wait: true
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#$PLAYER",
+								state: "full"
+							},
+							{
+								class: "com.bladecoder.engine.actions.DropItemAction",
+								actor: "carrot"
 							}
 						]
 					}
 				},
-				interaction: true,
+				interaction: false,
 				state: null,
 				zIndex: 0,
-				layer: "foreground"
-			},
-			home: {
-				class: "com.bladecoder.engine.model.InteractiveActor",
-				id: "home",
-				bbox: [ -95.79907, 10.502075, -127.305664, 571.7755, 125.35669, 828.26807, 304.5205, 556.71106, 312.14307, 382.73706, 310.04248, 33.60669 ],
-				pos: {
-					x: 3072,
-					y: 1308.6495
-				},
-				visible: true,
-				desc: "@map.home.desc_",
-				sounds: null,
-				refPoint: {},
-				verbs: {
-					"lookat.locked": {
-						id: "lookat",
-						target: null,
-						state: "locked",
-						icon: null,
-						actions: [
-							{
-								class: "com.bladecoder.engine.actions.TextAction",
-								text: "@map.home.lookat.locked.0.text",
-								style: "default",
-								type: "SUBTITLE",
-								queue: false,
-								wait: true
-							}
-						]
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						carrot: {
+							id: "carrot",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
 					},
-					"pickup.locked": {
-						id: "pickup",
-						target: null,
-						state: "locked",
-						icon: null,
-						actions: [
-							{
-								class: "com.bladecoder.engine.actions.TextAction",
-								text: "@map.home.enter.locked.0.text",
-								style: "default",
-								type: "SUBTITLE",
-								queue: false,
-								wait: true
-							}
-						]
-					}
+					initAnimation: "carrot"
 				},
-				interaction: true,
-				state: "locked",
-				zIndex: 0,
-				layer: "foreground"
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
 			}
 		},
 		backgroundAtlas: "map",
@@ -787,6 +1078,10 @@ scenes: {
 						pos: "1920.0,1080.0",
 						followActor: "mrdude",
 						wait: true
+					},
+					{
+						class: "com.bladecoder.engine.actions.PickUpAction",
+						actor: "map#housekey"
 					}
 				]
 			}
