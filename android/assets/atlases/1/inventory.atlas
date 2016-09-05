@@ -1,13 +1,27 @@
 
 inventory.png
-size: 378,249
+size: 876,394
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-hay
+00 hay
   rotate: false
-  xy: 1, 1
+  xy: 276, 146
   size: 376, 247
   orig: 400, 349
   offset: 2, 42
+  index: -1
+01 ticket
+  rotate: false
+  xy: 654, 74
+  size: 221, 319
+  orig: 252, 378
+  offset: 0, 17
+  index: -1
+02 money
+  rotate: false
+  xy: 1, 1
+  size: 273, 392
+  orig: 346, 506
+  offset: 16, 38
   index: -1

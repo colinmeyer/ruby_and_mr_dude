@@ -21,20 +21,53 @@ scenes: {
 				id: "hay_bundle",
 				bbox: [ -200, 0, -200, 349, 200, 349, 200, 0 ],
 				pos: {
-					x: -23.104797,
-					y: -226.84613
+					x: 170.55396,
+					y: -398.05164
 				},
 				visible: false,
-				desc: null,
+				desc: "@map.hay_bundle.desc",
 				sounds: null,
 				refPoint: {},
 				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.hay_bundle.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
 					"use.city_trading_house": {
 						id: "use",
 						target: "city_trading_house",
 						state: null,
 						icon: null,
-						actions: []
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.DropItemAction",
+								actor: "hay_bundle"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.hay_bundle.use.city_trading_house.2.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#ticket"
+							}
+						]
 					}
 				},
 				interaction: false,
@@ -44,8 +77,8 @@ scenes: {
 				renderer: {
 					class: "com.bladecoder.engine.model.AtlasRenderer",
 					fanims: {
-						hay: {
-							id: "hay",
+						"00 hay": {
+							id: "00 hay",
 							source: "inventory",
 							duration: 1,
 							animationType: "NO_REPEAT",
@@ -53,12 +86,116 @@ scenes: {
 							preload: true
 						}
 					},
-					initAnimation: "hay"
+					initAnimation: "00 hay"
 				},
 				scale: 1,
 				tint: null,
 				depthType: "NONE",
 				bboxFromRenderer: true
+			},
+			farmhouse: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "farmhouse",
+				bbox: [ -123.09277, -207.83496, -80.20618, 101.03088, 23.188232, 206.65025, 116.49487, 71.34021, 67.010376, -201.2373 ],
+				pos: {
+					x: 1596.7008,
+					y: 1501.0309
+				},
+				visible: true,
+				desc: "@map.farmhouse.desc_",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"pickup.unreachable": {
+						id: "pickup",
+						target: null,
+						state: "unreachable",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.farmhouse.pickup.unreachable.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.reachable": {
+						id: "pickup",
+						target: null,
+						state: "reachable",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "farmhouse",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.farmhouse.pickup.reachable.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.farmhouse.pickup.reachable.2.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#forest",
+								attr: "STATE",
+								value: "passable",
+								caID: "1913011679"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.farmhouse.lookat.2.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1913011679"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.farmhouse.lookat.1.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1913011679"
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: "unreachable",
+				zIndex: 1,
+				layer: "foreground"
 			},
 			factory: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
@@ -207,7 +344,7 @@ scenes: {
 				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
 					x: 2332.2888,
-					y: 1241.8583
+					y: 1230.7682
 				},
 				visible: true,
 				desc: null,
@@ -252,7 +389,7 @@ scenes: {
 				tint: null,
 				depthType: "NONE",
 				bboxFromRenderer: true,
-				dialogs: null,
+				dialogs: {},
 				walkingSpeed: 1000,
 				textColor: null
 			},
@@ -265,14 +402,174 @@ scenes: {
 					y: 1092.2218
 				},
 				visible: true,
-				desc: "@map.forest.desc",
+				desc: "@map.forest.desc_",
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.forest.lookat.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.passable": {
+						id: "pickup",
+						target: null,
+						state: "passable",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.forest.pickup.passable.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.unpassable": {
+						id: "pickup",
+						target: null,
+						state: "unpassable",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.forest.enter.3.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
 				interaction: true,
-				state: null,
+				state: "unpassable",
 				zIndex: 0,
 				layer: "foreground"
+			},
+			ticket: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "ticket",
+				bbox: [ -126, 0, -126, 378, 126, 378, 126, 0 ],
+				pos: {
+					x: 628.6893,
+					y: -425.20715
+				},
+				visible: false,
+				desc: "@map.ticket.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"use.forest": {
+						id: "use",
+						target: "forest",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.ticket.use.forest.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#forest",
+								state: "passable"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#farmhouse",
+								state: "reachable"
+							},
+							{
+								class: "com.bladecoder.engine.actions.DropItemAction",
+								actor: "ticket"
+							}
+						]
+					}
+				},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"01 ticket": {
+							id: "01 ticket",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "01 ticket"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
+			money: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "money",
+				bbox: [ -173, 0, -173, 506, 173, 506, 173, 0 ],
+				pos: {
+					x: 1011.9854,
+					y: -532.33203
+				},
+				visible: false,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					use: {
+						id: "use",
+						target: null,
+						state: null,
+						icon: null,
+						actions: []
+					}
+				},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"02 money": {
+							id: "02 money",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "02 money"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
 			},
 			city_work: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
@@ -283,10 +580,83 @@ scenes: {
 					y: 377.06866
 				},
 				visible: true,
-				desc: "@map.city_work.desc",
+				desc: "@map.city_work.desc_",
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_work.lookat.0.text_",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_work.pickup.1.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.city_work.pickup.1.text_",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_work.pickup.2.text_",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#money",
+								attr: "IN_INVENTORY",
+								value: "false",
+								caID: "1129641716"
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#money"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#money",
+								state: "one"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1129641716"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1129641716"
+							}
+						]
+					}
+				},
 				interaction: true,
 				state: null,
 				zIndex: 0,
@@ -314,6 +684,22 @@ scenes: {
 							{
 								class: "com.bladecoder.engine.actions.TextAction",
 								text: "@map.city_trading_house.lookat.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_trading_house.pickup.0.text",
 								style: "default",
 								type: "SUBTITLE",
 								queue: false,
