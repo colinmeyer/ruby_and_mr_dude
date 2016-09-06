@@ -1,0 +1,13 @@
+
+inside_home.png
+size: 1922,1106
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+inside_home
+  rotate: false
+  xy: 1, 1
+  size: 1920, 1104
+  orig: 1920, 1104
+  offset: 0, 0
+  index: -1
