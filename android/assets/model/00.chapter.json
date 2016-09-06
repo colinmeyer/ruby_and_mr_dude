@@ -1,6 +1,271 @@
 {
 bladeEngineVersion: "0.9.17",
 scenes: {
+	inside_home: {
+		id: "inside_home",
+		layers: [
+			{
+				name: "foreground"
+			},
+			{
+				name: "dynamic",
+				dynamic: true
+			},
+			{
+				name: "background"
+			}
+		],
+		actors: {
+			door: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "door",
+				bbox: [ -123.94318, -69.43512, -109.57715, 487.31775, 9.015991, 492.10617, 16.198975, -38.30899 ],
+				pos: {
+					x: 102.955444,
+					y: 237.03699
+				},
+				visible: true,
+				desc: "@inside_home.door.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "door",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.LeaveAction",
+								scene: "map"
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			mrdude: {
+				class: "com.bladecoder.engine.model.CharacterActor",
+				id: "mrdude",
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				pos: {
+					x: 186.98401,
+					y: 64.73764
+				},
+				visible: true,
+				desc: "@inside_home.mrdude.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: false,
+				state: "hungry",
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"stand.left": {
+							id: "stand.left",
+							source: "mrdude",
+							duration: 5,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"talk.left": {
+							id: "talk.left",
+							source: "mrdude",
+							duration: 1,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"walk.left": {
+							id: "walk.left",
+							source: "mrdude",
+							duration: 0.5,
+							animationType: "REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "stand.left"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true,
+				dialogs: {},
+				walkingSpeed: 1000,
+				textColor: null
+			},
+			heater: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "heater",
+				bbox: [ -100, 0, -92.81702, 269.43524, 195.77258, 231.12616, 193.37823, 11.971527 ],
+				pos: {
+					x: 632.0989,
+					y: 385.48453
+				},
+				visible: true,
+				desc: "@inside_home.heater.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.heater.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "heater",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.heater.pickup.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			worm_box: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "worm_box",
+				bbox: [ -49.719482, 71.829285, -64.08533, 144.93066, 59.29663, 152.11365, 35.353516, 64.646545 ],
+				pos: {
+					x: 1271.3805,
+					y: 878.71295
+				},
+				visible: true,
+				desc: "@inside_home.worm_box.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm_box.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 1,
+				layer: "foreground"
+			},
+			shelves: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "shelves",
+				bbox: [ -123.943115, -11.971619, -54.507935, 295.77246, 255.63037, 298.1668, 337.037, -2.3944702 ],
+				pos: {
+					x: 1199.551,
+					y: 770.96893
+				},
+				visible: true,
+				desc: "@inside_home.shelves.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.shelves.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			}
+		},
+		backgroundAtlas: "inside_home",
+		backgroundRegionId: "inside_home",
+		musicDesc: null,
+		polygonalNavGraph: {
+			walkZone: {
+				localVertices: [ 19.15448, 90.98389, -2.3944092, 368.8233, 257.46503, 417.4203, 640.2014, 412.83737, 1411.2975, 472.26337, 1922.3943, 435.86423, 1905.634, 83.8009 ],
+				x: -7.1829224,
+				y: -81.40671
+			}
+		},
+		verbs: {
+			init: {
+				id: "init",
+				target: null,
+				state: null,
+				icon: null,
+				actions: [
+					{
+						class: "com.bladecoder.engine.actions.SayAction",
+						actor: "$PLAYER",
+						text: "@inside_home.init.0.text",
+						type: "TALK",
+						queue: false,
+						wait: true
+					}
+				]
+			}
+		},
+		player: "mrdude"
+	},
 	map: {
 		id: "map",
 		layers: [
@@ -399,24 +664,7 @@ scenes: {
 				desc: "@map.mrdude.desc",
 				sounds: null,
 				refPoint: {},
-				verbs: {
-					"lookat.hungry": {
-						id: "lookat",
-						target: null,
-						state: "hungry",
-						icon: null,
-						actions: [
-							{
-								class: "com.bladecoder.engine.actions.SayAction",
-								actor: "$PLAYER",
-								text: "@map.mrdude.lookat.hungry.0.text",
-								type: "TALK",
-								queue: false,
-								wait: true
-							}
-						]
-					}
-				},
+				verbs: {},
 				interaction: false,
 				state: "hungry",
 				zIndex: 0,
@@ -499,6 +747,22 @@ scenes: {
 							{
 								class: "com.bladecoder.engine.actions.DropItemAction",
 								actor: "ticket"
+							}
+						]
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.ticket.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
 							}
 						]
 					}
@@ -708,6 +972,24 @@ scenes: {
 							}
 						]
 					},
+					"pickup.unlocked": {
+						id: "pickup",
+						target: null,
+						state: "unlocked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "home",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.LeaveAction",
+								scene: "inside_home"
+							}
+						]
+					},
 					"lookat.unlocked": {
 						id: "lookat",
 						target: null,
@@ -777,6 +1059,57 @@ scenes: {
 				sounds: null,
 				refPoint: {},
 				verbs: {
+					"use.shelves": {
+						id: "use",
+						target: "shelves",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.DropItemAction",
+								actor: "money",
+								pos: "1145.0,829.0"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "inside_home#money",
+								state: "on_shelves"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetActorAttrAction",
+								actor: "inside_home#money",
+								visible: true,
+								interaction: true,
+								layer: "foreground"
+							},
+							{
+								class: "com.bladecoder.engine.actions.ScaleAction",
+								actor: "money",
+								scale: 0.25,
+								speed: 1,
+								count: 1,
+								wait: true,
+								repeat: "REPEAT",
+								interpolation: "LINEAR"
+							}
+						]
+					},
+					"pickup.on_shelves": {
+						id: "pickup",
+						target: null,
+						state: "on_shelves",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "inside_home#money"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "inside_home#money"
+							}
+						]
+					},
 					"use.farmhouse": {
 						id: "use",
 						target: "farmhouse",
@@ -869,6 +1202,22 @@ scenes: {
 								caID: "1191443121"
 							}
 						]
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.money.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
 					}
 				},
 				interaction: false,
@@ -930,6 +1279,19 @@ scenes: {
 						icon: null,
 						actions: [
 							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#money",
+								attr: "IN_INVENTORY",
+								value: "false",
+								caID: "1129641716"
+							},
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "city_work",
+								wait: true
+							},
+							{
 								class: "com.bladecoder.engine.actions.TextAction",
 								text: "@map.city_work.pickup.1.text",
 								style: "default",
@@ -954,13 +1316,6 @@ scenes: {
 								wait: true
 							},
 							{
-								class: "com.bladecoder.engine.actions.IfAttrAction",
-								actor: "map#money",
-								attr: "IN_INVENTORY",
-								value: "false",
-								caID: "1129641716"
-							},
-							{
 								class: "com.bladecoder.engine.actions.PickUpAction",
 								actor: "map#money"
 							},
@@ -972,6 +1327,14 @@ scenes: {
 							{
 								class: "com.bladecoder.engine.actions.EndAction",
 								caID: "1129641716"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.city_work.pickup.7.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
 							},
 							{
 								class: "com.bladecoder.engine.actions.EndAction",
