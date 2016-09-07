@@ -113,14 +113,88 @@ scenes: {
 				id: "worm",
 				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
 				pos: {
-					x: 198.72797,
-					y: -330.4153
+					x: 331.24982,
+					y: -217.05353
 				},
 				visible: false,
 				desc: null,
 				sounds: null,
 				refPoint: {},
 				verbs: {
+					"use.worm_box": {
+						id: "use",
+						target: "worm_box",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.RemoveInventoryItemAction",
+								id: "worm",
+								scene: "inside_home"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.use.worm_box.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.sea": {
+						id: "use",
+						target: "sea",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.RemoveInventoryItemAction",
+								id: "worm",
+								scene: "inside_home"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.use.sea.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.worm_box.cooked": {
+						id: "use",
+						target: "worm_box",
+						state: "cooked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.use2.worm_box.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.cooked": {
+						id: "pickup",
+						target: null,
+						state: "cooked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.pickup2.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
 					lookat: {
 						id: "lookat",
 						target: null,
@@ -152,6 +226,56 @@ scenes: {
 								wait: true
 							}
 						]
+					},
+					"lookat.cooked": {
+						id: "lookat",
+						target: null,
+						state: "cooked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.lookat.cooked.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.heater": {
+						id: "use",
+						target: "heater",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "heater",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.AnimationAction",
+								animation: "worm#worm_cooked",
+								count: -1,
+								wait: true,
+								repeat: "SPRITE_DEFINED"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "inside_home#worm",
+								state: "cooked"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.use.heater.3.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
 					}
 				},
 				interaction: true,
@@ -161,6 +285,14 @@ scenes: {
 				renderer: {
 					class: "com.bladecoder.engine.model.AtlasRenderer",
 					fanims: {
+						worm_cooked: {
+							id: "worm_cooked",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						},
 						worm: {
 							id: "worm",
 							source: "inventory",
@@ -270,6 +402,25 @@ scenes: {
 						icon: null,
 						actions: [
 							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "inside_home#worm",
+								attr: "IN_INVENTORY",
+								value: "true",
+								caID: "320230371"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm_box.pickup.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "320230371"
+							},
+							{
 								class: "com.bladecoder.engine.actions.GotoAction",
 								actor: "$PLAYER",
 								target: "worm_box",
@@ -284,8 +435,23 @@ scenes: {
 								wait: true
 							},
 							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "inside_home#worm"
+							},
+							{
+								class: "com.bladecoder.engine.actions.AnimationAction",
+								animation: "worm#worm",
+								count: -1,
+								wait: true,
+								repeat: "SPRITE_DEFINED"
+							},
+							{
 								class: "com.bladecoder.engine.actions.PickUpAction",
 								actor: "inside_home#worm"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "320230371"
 							}
 						]
 					}
@@ -300,8 +466,8 @@ scenes: {
 				id: "shelves",
 				bbox: [ -123.943115, -11.971619, -54.507935, 295.77246, 255.63037, 298.1668, 337.037, -2.3944702 ],
 				pos: {
-					x: 1199.551,
-					y: 770.96893
+					x: 1191.5676,
+					y: 764.58246
 				},
 				visible: true,
 				desc: "@inside_home.shelves.desc",
