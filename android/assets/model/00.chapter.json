@@ -19,7 +19,7 @@ scenes: {
 			mrdude_portal: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "mrdude_portal",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 2081.1294,
 					y: 1473.4901
@@ -90,7 +90,7 @@ scenes: {
 			ruby: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "ruby",
-				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 373.63068,
 					y: 73.8887
@@ -211,7 +211,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 186.98401,
 					y: 64.73764
@@ -266,7 +266,7 @@ scenes: {
 			worm: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "worm",
-				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 331.24982,
 					y: -217.05353
@@ -938,6 +938,22 @@ scenes: {
 								wait: true
 							}
 						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.factory.pickup.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
 					}
 				},
 				interaction: true,
@@ -1360,18 +1376,18 @@ scenes: {
 			bag: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "bag",
-				bbox: [ -443, 0, -443, 678, 443, 678, 443, 0 ],
+				bbox: [ -431.5, 0, -431.5, 747, 431.5, 747, 431.5, 0 ],
 				pos: {
-					x: 2298.541,
-					y: -1036.7378
+					x: 2277.5366,
+					y: -1133.3575
 				},
 				visible: false,
-				desc: null,
+				desc: "@map.bag.desc_",
 				sounds: null,
 				refPoint: {},
 				verbs: {},
 				interaction: false,
-				state: null,
+				state: "goods",
 				zIndex: 0,
 				layer: "foreground",
 				renderer: {
@@ -1384,9 +1400,17 @@ scenes: {
 							animationType: "NO_REPEAT",
 							count: -1,
 							preload: true
+						},
+						bag_goods: {
+							id: "bag_goods",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
 						}
 					},
-					initAnimation: "bag"
+					initAnimation: "bag_goods"
 				},
 				scale: 1,
 				tint: null,
@@ -1833,6 +1857,10 @@ scenes: {
 								class: "com.bladecoder.engine.actions.RemoveInventoryItemAction",
 								id: "money",
 								scene: "map"
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#bag"
 							}
 						]
 					},
