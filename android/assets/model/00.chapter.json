@@ -1,6 +1,161 @@
 {
 bladeEngineVersion: "0.9.17",
 scenes: {
+	ruby_map: {
+		id: "ruby_map",
+		layers: [
+			{
+				name: "foreground"
+			},
+			{
+				name: "dynamic",
+				dynamic: true
+			},
+			{
+				name: "background"
+			}
+		],
+		actors: {
+			mrdude_portal: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "mrdude_portal",
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				pos: {
+					x: 2081.1294,
+					y: 1473.4901
+				},
+				visible: true,
+				desc: "@ruby_map.mrdude_portal.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@ruby_map.mrdude_portal.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "mrdude_portal",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.LeaveAction",
+								scene: "map"
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"stand.left": {
+							id: "stand.left",
+							source: "mrdude",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "stand.left"
+				},
+				scale: 0.75,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
+			ruby: {
+				class: "com.bladecoder.engine.model.CharacterActor",
+				id: "ruby",
+				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
+				pos: {
+					x: 373.63068,
+					y: 73.8887
+				},
+				visible: true,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"stand.left": {
+							id: "stand.left",
+							source: "ruby",
+							duration: 3,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						},
+						"talk.left": {
+							id: "talk.left",
+							source: "ruby",
+							duration: 2,
+							animationType: "REPEAT",
+							count: -1,
+							preload: true
+						},
+						"walk.left": {
+							id: "walk.left",
+							source: "ruby",
+							duration: 1,
+							animationType: "REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "stand.left"
+				},
+				scale: 0.75,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true,
+				dialogs: null,
+				walkingSpeed: 1000,
+				textColor: null
+			}
+		},
+		backgroundAtlas: "ruby_map",
+		backgroundRegionId: "map",
+		musicDesc: null,
+		polygonalNavGraph: {
+			walkZone: {
+				localVertices: [ 0, 0, 6.3012085, 1336.0067, 2554.498, 1338.1072, 2565, 0 ],
+				x: 2.3152542,
+				y: -0.46305084
+			}
+		},
+		verbs: {},
+		player: "ruby"
+	},
 	inside_home: {
 		id: "inside_home",
 		layers: [
@@ -56,7 +211,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 186.98401,
 					y: 64.73764
@@ -111,7 +266,7 @@ scenes: {
 			worm: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "worm",
-				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 331.24982,
 					y: -217.05353
@@ -561,7 +716,7 @@ scenes: {
 			hay_bundle: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "hay_bundle",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -200, 0, -200, 349, 200, 349, 200, 0 ],
 				pos: {
 					x: 170.55396,
 					y: -398.05164
@@ -751,7 +906,24 @@ scenes: {
 				desc: "@map.factory.desc",
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.factory.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
 				interaction: true,
 				state: null,
 				zIndex: 0,
@@ -932,13 +1104,13 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
 					x: 2332.2888,
 					y: 1230.7682
 				},
 				visible: true,
-				desc: "@map.mrdude.desc",
+				desc: "@map.mrdude.desc_",
 				sounds: null,
 				refPoint: {},
 				verbs: {},
@@ -987,7 +1159,7 @@ scenes: {
 			ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "ticket",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -126, 0, -126, 378, 126, 378, 126, 0 ],
 				pos: {
 					x: 628.6893,
 					y: -425.20715
@@ -1070,7 +1242,7 @@ scenes: {
 			housekey: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "housekey",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -200, 0, -200, 253, 200, 253, 200, 0 ],
 				pos: {
 					x: 2061.483,
 					y: -308.7312
@@ -1172,7 +1344,7 @@ scenes: {
 			bag: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "bag",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -443, 0, -443, 678, 443, 678, 443, 0 ],
 				pos: {
 					x: 2298.541,
 					y: -1036.7378
@@ -1265,7 +1437,7 @@ scenes: {
 					y: 2.3943176
 				},
 				visible: true,
-				desc: null,
+				desc: "@map.sea.desc",
 				sounds: null,
 				refPoint: {},
 				verbs: {
@@ -1404,7 +1576,61 @@ scenes: {
 				desc: "@map.sand.desc",
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.sand.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "sand",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#bag",
+								attr: "IN_INVENTORY",
+								value: "true",
+								caID: "687549047"
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "687549047"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.sand.pickup.2.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "687549047"
+							}
+						]
+					}
+				},
 				interaction: true,
 				state: null,
 				zIndex: 0,
@@ -1413,7 +1639,7 @@ scenes: {
 			money: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "money",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -173, 0, -173, 506, 173, 506, 173, 0 ],
 				pos: {
 					x: 1011.9854,
 					y: -532.33203
@@ -1567,6 +1793,33 @@ scenes: {
 							}
 						]
 					},
+					"use.factory": {
+						id: "use",
+						target: "factory",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "factory",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.money.use.factory.1.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.RemoveInventoryItemAction",
+								id: "money",
+								scene: "map"
+							}
+						]
+					},
 					lookat: {
 						id: "lookat",
 						target: null,
@@ -1712,10 +1965,81 @@ scenes: {
 				zIndex: 0,
 				layer: "foreground"
 			},
+			ruby_portal: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "ruby_portal",
+				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
+				pos: {
+					x: 2259.913,
+					y: 1837.569
+				},
+				visible: true,
+				desc: "@map.ruby_portal.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.ruby_portal.lookat.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "ruby_portal",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.LeaveAction",
+								scene: "ruby_map"
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"stand.left": {
+							id: "stand.left",
+							source: "ruby",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "stand.left"
+				},
+				scale: 0.3,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
 			carrot: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "carrot",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -250, 0, -250, 438, 250, 438, 250, 0 ],
 				pos: {
 					x: 1528.5566,
 					y: -489.3797
