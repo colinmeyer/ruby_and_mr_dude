@@ -1188,6 +1188,42 @@ scenes: {
 				walkingSpeed: 1000,
 				textColor: null
 			},
+			fake_money: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "fake_money",
+				bbox: [ -120, 0, -120, 348, 120, 348, 120, 0 ],
+				pos: {
+					x: 663.7348,
+					y: -869.57666
+				},
+				visible: true,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						fake_money: {
+							id: "fake_money",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "fake_money"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
 			ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "ticket",
@@ -1385,7 +1421,71 @@ scenes: {
 				desc: "@map.bag.desc_",
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					"lookat.empty": {
+						id: "lookat",
+						target: null,
+						state: "empty",
+						icon: null,
+						actions: []
+					},
+					"lookat.goods": {
+						id: "lookat",
+						target: null,
+						state: "goods",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.bag.lookat.goods.0.text",
+								style: "default",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.goods": {
+						id: "pickup",
+						target: null,
+						state: "goods",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.AnimationAction",
+								animation: "bag#bag",
+								count: -1,
+								wait: true,
+								repeat: "SPRITE_DEFINED"
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#fishing_pole"
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#fake_ticket"
+							},
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "map#fake_money"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#bag",
+								state: "empty"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.bag.pickup.goods.4.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
 				interaction: false,
 				state: "goods",
 				zIndex: 0,
@@ -1411,6 +1511,42 @@ scenes: {
 						}
 					},
 					initAnimation: "bag_goods"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
+			fake_ticket: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "fake_ticket",
+				bbox: [ -214, 0, -214, 536, 214, 536, 214, 0 ],
+				pos: {
+					x: 1159.4354,
+					y: -1134.2301
+				},
+				visible: true,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						fake_ticket: {
+							id: "fake_ticket",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "fake_ticket"
 				},
 				scale: 1,
 				tint: null,
@@ -1898,6 +2034,42 @@ scenes: {
 						}
 					},
 					initAnimation: "02 money"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
+			fishing_pole: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "fishing_pole",
+				bbox: [ -245, 0, -245, 418, 245, 418, 245, 0 ],
+				pos: {
+					x: 222.6452,
+					y: -903.1831
+				},
+				visible: true,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						"03 fishingpole": {
+							id: "03 fishingpole",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "03 fishingpole"
 				},
 				scale: 1,
 				tint: null,
