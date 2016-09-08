@@ -43,6 +43,22 @@ verbs: {
 			}
 		]
 	},
+	"use.factory": {
+		id: "use",
+		target: "factory",
+		state: null,
+		icon: null,
+		actions: [
+			{
+				class: "com.bladecoder.engine.actions.TextAction",
+				text: "@default.use.factory.0.text",
+				style: "default",
+				type: "SUBTITLE",
+				queue: false,
+				wait: true
+			}
+		]
+	},
 	lookat: {
 		id: "lookat",
 		target: null,

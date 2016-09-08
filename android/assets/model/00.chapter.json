@@ -211,7 +211,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
 					x: 186.98401,
 					y: 64.73764
@@ -266,7 +266,7 @@ scenes: {
 			worm: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "worm",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
 				pos: {
 					x: 331.24982,
 					y: -217.05353
@@ -344,6 +344,31 @@ scenes: {
 								class: "com.bladecoder.engine.actions.SayAction",
 								actor: "$PLAYER",
 								text: "@inside_home.worm.pickup2.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.fishing_pole": {
+						id: "use",
+						target: "fishing_pole",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@inside_home.worm.use.fishing_pole.0.text",
+								style: "default",
+								color: "ff888800",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.use.fishing_pole.1.text",
 								type: "TALK",
 								queue: false,
 								wait: true
@@ -445,6 +470,35 @@ scenes: {
 								type: "TALK",
 								queue: false,
 								wait: true
+							}
+						]
+					},
+					"use.fishing_pole.cooked": {
+						id: "use",
+						target: "fishing_pole",
+						state: "cooked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.RemoveInventoryItemAction",
+								id: "worm",
+								scene: "inside_home"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "inside_home#worm"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#fishing_pole",
+								state: "worm"
+							},
+							{
+								class: "com.bladecoder.engine.actions.AnimationAction",
+								animation: "fishing_pole#fishingpole_worm",
+								count: -1,
+								wait: true,
+								repeat: "SPRITE_DEFINED"
 							}
 						]
 					}
@@ -742,6 +796,23 @@ scenes: {
 				sounds: null,
 				refPoint: {},
 				verbs: {
+					"use.hay": {
+						id: "use",
+						target: "hay",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.DropItemAction",
+								actor: "hay_bundle"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#hay",
+								state: "full"
+							}
+						]
+					},
 					lookat: {
 						id: "lookat",
 						target: null,
@@ -758,6 +829,22 @@ scenes: {
 							}
 						]
 					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.hay_bundle.pickup.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
 					"use.city_trading_house": {
 						id: "use",
 						target: "city_trading_house",
@@ -767,6 +854,11 @@ scenes: {
 							{
 								class: "com.bladecoder.engine.actions.DropItemAction",
 								actor: "hay_bundle"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#hay",
+								state: "full"
 							},
 							{
 								class: "com.bladecoder.engine.actions.TextAction",
@@ -1412,7 +1504,7 @@ scenes: {
 			bag: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "bag",
-				bbox: [ -431.5, 0, -431.5, 747, 431.5, 747, 431.5, 0 ],
+				bbox: [ -443, 0, -443, 678, 443, 678, 443, 0 ],
 				pos: {
 					x: 2277.5366,
 					y: -1133.3575
@@ -2052,7 +2144,56 @@ scenes: {
 				desc: null,
 				sounds: null,
 				refPoint: {},
-				verbs: {},
+				verbs: {
+					"lookat.worm": {
+						id: "lookat",
+						target: null,
+						state: "worm",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.fishing_pole.lookat.worm.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.fishing_pole.lookat.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.fishing_pole.pickup.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
 				interaction: true,
 				state: null,
 				zIndex: 0,
@@ -2060,6 +2201,14 @@ scenes: {
 				renderer: {
 					class: "com.bladecoder.engine.model.AtlasRenderer",
 					fanims: {
+						fishingpole_worm: {
+							id: "fishingpole_worm",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						},
 						"03 fishingpole": {
 							id: "03 fishingpole",
 							source: "inventory",
@@ -2186,8 +2335,8 @@ scenes: {
 				id: "ruby_portal",
 				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
 				pos: {
-					x: 2259.913,
-					y: 1837.569
+					x: 2764.0156,
+					y: 1904.7826
 				},
 				visible: true,
 				desc: "@map.ruby_portal.desc",
@@ -2240,7 +2389,7 @@ scenes: {
 							id: "stand.left",
 							source: "ruby",
 							duration: 1,
-							animationType: "NO_REPEAT",
+							animationType: "YOYO",
 							count: -1,
 							preload: true
 						}
