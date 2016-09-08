@@ -1,0 +1,13 @@
+
+ruby_map.png
+size: 2567,1798
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+map
+  rotate: false
+  xy: 1, 1
+  size: 2565, 1796
+  orig: 2565, 1796
+  offset: 0, 0
+  index: -1

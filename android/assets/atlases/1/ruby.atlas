@@ -1,0 +1,132 @@
+
+ruby.png
+size: 3628,1232
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+stand.left
+  rotate: false
+  xy: 1439, 608
+  size: 729, 623
+  orig: 737, 654
+  offset: 3, 28
+  index: 1
+stand.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 737, 654
+  offset: 183, 3
+  index: 0
+stand.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 737, 654
+  offset: 183, 3
+  index: 2
+stand.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 737, 654
+  offset: 183, 3
+  index: 3
+talk.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 744, 657
+  offset: 177, 2
+  index: 4
+talk.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 744, 657
+  offset: 177, 2
+  index: 0
+talk.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 744, 657
+  offset: 177, 2
+  index: 2
+walk.left
+  rotate: false
+  xy: 2466, 69
+  size: 549, 537
+  orig: 986, 924
+  offset: 323, 148
+  index: 0
+talk.left
+  rotate: false
+  xy: 2170, 608
+  size: 726, 623
+  orig: 744, 657
+  offset: 0, 27
+  index: 5
+talk.left
+  rotate: false
+  xy: 1, 13
+  size: 590, 539
+  orig: 744, 657
+  offset: 153, 13
+  index: 1
+talk.left
+  rotate: false
+  xy: 1, 13
+  size: 590, 539
+  orig: 744, 657
+  offset: 153, 13
+  index: 3
+walk.left
+  rotate: false
+  xy: 1, 554
+  size: 697, 677
+  orig: 986, 924
+  offset: 0, 0
+  index: 5
+walk.left
+  rotate: false
+  xy: 700, 613
+  size: 737, 618
+  orig: 986, 924
+  offset: 110, 286
+  index: 1
+walk.left
+  rotate: false
+  xy: 2898, 613
+  size: 729, 618
+  orig: 986, 924
+  offset: 110, 304
+  index: 7
+walk.left
+  rotate: false
+  xy: 700, 39
+  size: 620, 572
+  orig: 986, 924
+  offset: 112, 187
+  index: 6
+walk.left
+  rotate: false
+  xy: 1322, 1
+  size: 618, 605
+  orig: 986, 924
+  offset: 368, 178
+  index: 3
+walk.left
+  rotate: false
+  xy: 1942, 35
+  size: 522, 571
+  orig: 986, 924
+  offset: 342, 147
+  index: 4
+walk.left
+  rotate: false
+  xy: 3017, 127
+  size: 508, 484
+  orig: 986, 924
+  offset: 374, 340
+  index: 2
