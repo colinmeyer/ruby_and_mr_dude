@@ -211,7 +211,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
 					x: 186.98401,
 					y: 64.73764
@@ -266,7 +266,7 @@ scenes: {
 			worm: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "worm",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
 				pos: {
 					x: 331.24982,
 					y: -217.05353
@@ -376,6 +376,22 @@ scenes: {
 								class: "com.bladecoder.engine.actions.SayAction",
 								actor: "$PLAYER",
 								text: "@inside_home.worm.pickup.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.heater.cooked": {
+						id: "use",
+						target: "heater",
+						state: "cooked",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@inside_home.worm.use.heater.cooked.0.text",
 								type: "TALK",
 								queue: false,
 								wait: true
