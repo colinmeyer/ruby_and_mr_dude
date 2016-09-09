@@ -1,96 +1,103 @@
 
 inventory.png
-size: 3293,765
+size: 2861,1077
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 00 hay
   rotate: false
-  xy: 1718, 3
+  xy: 429, 102
   size: 376, 247
   orig: 400, 349
   offset: 2, 42
   index: -1
 01 ticket
   rotate: false
-  xy: 2777, 54
+  xy: 2541, 20
   size: 221, 319
   orig: 252, 378
   offset: 0, 17
   index: -1
 02 money
   rotate: false
-  xy: 3019, 372
+  xy: 2587, 684
   size: 273, 392
   orig: 346, 506
   offset: 16, 38
   index: -1
 03 fishingpole
   rotate: false
-  xy: 2113, 1
+  xy: 1, 1
   size: 426, 348
   orig: 490, 418
   offset: 47, 41
   index: -1
 bag
   rotate: false
-  xy: 849, 223
+  xy: 1718, 535
   size: 867, 541
   orig: 886, 678
   offset: 0, 39
   index: -1
 bag_goods
   rotate: false
-  xy: 1, 39
+  xy: 1, 351
   size: 846, 725
   orig: 863, 747
   offset: 4, 7
   index: -1
+bag_sand
+  rotate: false
+  xy: 849, 488
+  size: 867, 588
+  orig: 886, 800
+  offset: 0, 39
+  index: -1
 carrot
   rotate: false
-  xy: 2113, 351
+  xy: 849, 73
   size: 476, 413
   orig: 500, 438
   offset: 11, 25
   index: -1
 fake_money
   rotate: false
-  xy: 2541, 8
+  xy: 2587, 341
   size: 234, 341
   orig: 240, 348
   offset: 6, 0
   index: -1
 fake_ticket
   rotate: false
-  xy: 1718, 252
+  xy: 1718, 21
   size: 393, 512
   orig: 428, 536
   offset: 21, 14
   index: -1
 fishingpole_worm
   rotate: false
-  xy: 2591, 375
+  xy: 2113, 144
   size: 426, 389
   orig: 490, 418
   offset: 47, 0
   index: -1
 key
   rotate: false
-  xy: 849, 19
+  xy: 1327, 166
   size: 367, 202
   orig: 400, 253
   offset: 22, 27
   index: -1
 worm
   rotate: false
-  xy: 1218, 105
+  xy: 1327, 370
   size: 373, 116
   orig: 400, 200
   offset: 8, 38
   index: -1
 worm_cooked
   rotate: false
-  xy: 1218, 29
+  xy: 2113, 68
   size: 400, 74
   orig: 400, 200
   offset: 0, 22

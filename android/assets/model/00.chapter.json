@@ -211,7 +211,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 186.98401,
 					y: 64.73764
@@ -266,7 +266,7 @@ scenes: {
 			worm: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "worm",
-				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 331.24982,
 					y: -217.05353
@@ -1514,12 +1514,53 @@ scenes: {
 				sounds: null,
 				refPoint: {},
 				verbs: {
+					"use.sand.goods": {
+						id: "use",
+						target: "sand",
+						state: "goods",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.bag.use.sand.goods.0.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
 					"lookat.empty": {
 						id: "lookat",
 						target: null,
 						state: "empty",
 						icon: null,
-						actions: []
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.bag.lookat.empty.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"lookat.sand": {
+						id: "lookat",
+						target: null,
+						state: "sand",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.bag.lookat.sand.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
 					},
 					"lookat.goods": {
 						id: "lookat",
@@ -1576,6 +1617,56 @@ scenes: {
 								wait: true
 							}
 						]
+					},
+					"pickup.sand": {
+						id: "pickup",
+						target: null,
+						state: "sand",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.bag.pickup.sand.0.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"use.sand.empty": {
+						id: "use",
+						target: "sand",
+						state: "empty",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "$PLAYER",
+								target: "sand",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#bag",
+								state: "sand"
+							},
+							{
+								class: "com.bladecoder.engine.actions.AnimationAction",
+								animation: "bag#bag_sand",
+								count: -1,
+								wait: true,
+								repeat: "SPRITE_DEFINED"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.bag.pickup2.5.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
 					}
 				},
 				interaction: false,
@@ -1585,6 +1676,14 @@ scenes: {
 				renderer: {
 					class: "com.bladecoder.engine.model.AtlasRenderer",
 					fanims: {
+						bag_sand: {
+							id: "bag_sand",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						},
 						bag: {
 							id: "bag",
 							source: "inventory",
@@ -1879,6 +1978,49 @@ scenes: {
 								attr: "IN_INVENTORY",
 								value: "true",
 								caID: "687549047"
+							},
+							{
+								class: "com.bladecoder.engine.actions.IfAttrAction",
+								actor: "map#bag",
+								attr: "STATE",
+								value: "empty",
+								caID: "1087245788"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "map#bag",
+								state: "sand"
+							},
+							{
+								class: "com.bladecoder.engine.actions.AnimationAction",
+								animation: "bag#bag_sand",
+								count: -1,
+								wait: true,
+								repeat: "SPRITE_DEFINED"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.sand.pickup.5.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1087245788"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.sand.pickup.4.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.EndAction",
+								caID: "1087245788"
 							},
 							{
 								class: "com.bladecoder.engine.actions.EndAction",
