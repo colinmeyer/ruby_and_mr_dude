@@ -4,7 +4,7 @@ sourceCompatibility = '1.7'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 ext {
-	mainClassName = "org.helvella.calix.howitworks.IOSLauncher"
+	mainClassName = "org.helvella.coralncalix.rubyandmrdude.IOSLauncher"
 }
 
 launchIPhoneSimulator.dependsOn build

@@ -1,4 +1,4 @@
-package org.helvella.calix.howitworks.desktop;
+package org.helvella.coralncalix.rubyandmrdude.desktop;
 
 import java.io.IOException;
 import java.io.InputStream;

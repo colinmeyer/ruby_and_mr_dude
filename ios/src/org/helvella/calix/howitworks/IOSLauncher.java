@@ -1,4 +1,4 @@
-package org.helvella.calix.howitworks;
+package org.helvella.coralncalix.rubyandmrdude;
 
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.uikit.UIApplication;

@@ -17,7 +17,7 @@ android {
     }
     
     defaultConfig {
-        applicationId "org.helvella.calix.howitworks"
+        applicationId "org.helvella.coralncalix.rubyandmrdude"
         minSdkVersion 15
         targetSdkVersion 20        
         versionName version
@@ -90,7 +90,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'org.helvella.calix.howitworks/org.helvella.calix.howitworks.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'org.helvella.coralncalix.rubyandmrdude/org.helvella.coralncalix.rubyandmrdude.AndroidLauncher'
 }
 
 // sets up the Android Eclipse project, using the old Ant based build.

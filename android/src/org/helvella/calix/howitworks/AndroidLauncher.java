@@ -1,4 +1,4 @@
-package org.helvella.calix.howitworks;
+package org.helvella.coralncalix.rubyandmrdude;
 
 import com.bladecoder.engine.BladeEngine;
 
