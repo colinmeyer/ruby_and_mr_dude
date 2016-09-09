@@ -669,7 +669,7 @@ scenes: {
 								class: "com.bladecoder.engine.actions.TextAction",
 								text: "@inside_home.worm.use.fishing_pole.0.text",
 								style: "default",
-								color: "ff888800",
+								color: "ff8888ff",
 								type: "SUBTITLE",
 								queue: false,
 								wait: true
