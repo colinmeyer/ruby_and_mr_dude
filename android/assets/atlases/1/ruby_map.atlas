@@ -1,9 +1,44 @@
 
 ruby_map.png
-size: 2567,1798
+size: 2769,1798
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+fire
+  rotate: false
+  xy: 2568, 1545
+  size: 200, 252
+  orig: 200, 261
+  offset: 0, 4
+  index: 3
+fire
+  rotate: false
+  xy: 2568, 1292
+  size: 184, 251
+  orig: 200, 261
+  offset: 7, 4
+  index: 0
+fire
+  rotate: false
+  xy: 2568, 1039
+  size: 175, 251
+  orig: 200, 261
+  offset: 16, 4
+  index: 1
+fire
+  rotate: false
+  xy: 2568, 786
+  size: 175, 251
+  orig: 200, 261
+  offset: 16, 4
+  index: 2
+fire
+  rotate: false
+  xy: 2568, 533
+  size: 173, 251
+  orig: 200, 261
+  offset: 9, 4
+  index: 4
 map
   rotate: false
   xy: 1, 1

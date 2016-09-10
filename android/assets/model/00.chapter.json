@@ -211,6 +211,42 @@ scenes: {
 				zIndex: 0,
 				layer: "foreground"
 			},
+			fire: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "fire",
+				bbox: [ -100, 0, -100, 261, 100, 261, 100, 0 ],
+				pos: {
+					x: 1991.2333,
+					y: 399.46637
+				},
+				visible: true,
+				desc: "@ruby_map.fire.desc_",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						fire: {
+							id: "fire",
+							source: "ruby_map",
+							duration: 1,
+							animationType: "YOYO",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "fire"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
 			mrdude_portal: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "mrdude_portal",
