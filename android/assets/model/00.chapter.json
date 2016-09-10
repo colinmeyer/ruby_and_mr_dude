@@ -16,10 +16,110 @@ scenes: {
 			}
 		],
 		actors: {
+			spiky_ball: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "spiky_ball",
+				bbox: [ -130.49365, -79.28351, -158.25494, 16.589806, -81.70386, 178.65442, 36.05182, 192.50793, 188.4314, 145.11145, 233.74963, 33.73192, 221.97449, -82.332825 ],
+				pos: {
+					x: 969.69714,
+					y: 88.43146
+				},
+				visible: true,
+				desc: "@ruby_map.spiky_ball.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.PickUpAction",
+								actor: "ruby_map#medicine"
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "ruby",
+								text: "@ruby_map.spiky_ball.pickup.1.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "ruby",
+								text: "@ruby_map.spiky_ball.lookat.0.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
+			grassy_field: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "grassy_field",
+				bbox: [ -112.19739, 21.34555, -96.95062, 139.0127, 52.725647, 206.92981, 206.7276, 196.95068, 209.06653, 108.89917, 154.88855, 15.246857, 22.596863, -15.381744 ],
+				pos: {
+					x: 667.81024,
+					y: 497.0459
+				},
+				visible: true,
+				desc: "@ruby_map.grassy_field.desc",
+				sounds: null,
+				refPoint: {
+					x: 9.148071,
+					y: -15.246857
+				},
+				verbs: {
+					pickup: {
+						id: "pickup",
+						target: null,
+						state: null,
+						icon: null,
+						actions: []
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@ruby_map.grassy_field.lookat.0.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
+			},
 			mrdude_portal: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "mrdude_portal",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
 					x: 2081.1294,
 					y: 1473.4901
@@ -87,10 +187,46 @@ scenes: {
 				depthType: "NONE",
 				bboxFromRenderer: true
 			},
+			medicine: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "medicine",
+				bbox: [ -68.5, 0, -68.5, 200, 68.5, 200, 68.5, 0 ],
+				pos: {
+					x: 167.08621,
+					y: -381.91147
+				},
+				visible: false,
+				desc: "@ruby_map.medicine.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						medicine: {
+							id: "medicine",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "medicine"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
+			},
 			ruby: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "ruby",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
 				pos: {
 					x: 373.63068,
 					y: 73.8887
@@ -211,7 +347,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 186.98401,
 					y: 64.73764
@@ -266,7 +402,7 @@ scenes: {
 			worm: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "worm",
-				bbox: [ -200, 0, -200, 200, 200, 200, 200, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 331.24982,
 					y: -217.05353
@@ -786,7 +922,7 @@ scenes: {
 			hay_bundle: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "hay_bundle",
-				bbox: [ -200, 0, -200, 349, 200, 349, 200, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 170.55396,
 					y: -398.05164
@@ -1228,7 +1364,7 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 2332.2888,
 					y: 1230.7682
@@ -1283,7 +1419,7 @@ scenes: {
 			fake_money: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fake_money",
-				bbox: [ -120, 0, -120, 348, 120, 348, 120, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 663.7348,
 					y: -869.57666
@@ -1319,7 +1455,7 @@ scenes: {
 			ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "ticket",
-				bbox: [ -126, 0, -126, 378, 126, 378, 126, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 628.6893,
 					y: -425.20715
@@ -1418,7 +1554,7 @@ scenes: {
 			housekey: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "housekey",
-				bbox: [ -200, 0, -200, 253, 200, 253, 200, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 2061.483,
 					y: -308.7312
@@ -1520,7 +1656,7 @@ scenes: {
 			bag: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "bag",
-				bbox: [ -443, 0, -443, 678, 443, 678, 443, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 2277.5366,
 					y: -1133.3575
@@ -1727,7 +1863,7 @@ scenes: {
 			fake_ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fake_ticket",
-				bbox: [ -214, 0, -214, 536, 214, 536, 214, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 1159.4354,
 					y: -1134.2301
@@ -2065,7 +2201,7 @@ scenes: {
 			money: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "money",
-				bbox: [ -173, 0, -173, 506, 173, 506, 173, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 1011.9854,
 					y: -532.33203
@@ -2293,7 +2429,7 @@ scenes: {
 			fishing_pole: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fishing_pole",
-				bbox: [ -245, 0, -245, 418, 245, 418, 245, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 222.6452,
 					y: -903.1831
@@ -2491,7 +2627,7 @@ scenes: {
 			ruby_portal: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "ruby_portal",
-				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 2764.0156,
 					y: 1904.7826
@@ -2562,7 +2698,7 @@ scenes: {
 			carrot: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "carrot",
-				bbox: [ -250, 0, -250, 438, 250, 438, 250, 0 ],
+				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
 				pos: {
 					x: 1528.5566,
 					y: -489.3797

@@ -1,6 +1,6 @@
 
 inventory.png
-size: 2861,1077
+size: 2893,1077
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -13,7 +13,7 @@ repeat: none
   index: -1
 01 ticket
   rotate: false
-  xy: 2541, 20
+  xy: 2386, 214
   size: 221, 319
   orig: 252, 378
   offset: 0, 17
@@ -62,42 +62,49 @@ carrot
   index: -1
 fake_money
   rotate: false
-  xy: 2587, 341
+  xy: 2150, 192
   size: 234, 341
   orig: 240, 348
   offset: 6, 0
   index: -1
 fake_ticket
   rotate: false
-  xy: 1718, 21
+  xy: 1755, 21
   size: 393, 512
   orig: 428, 536
   offset: 21, 14
   index: -1
 fishingpole_worm
   rotate: false
-  xy: 2113, 144
+  xy: 1327, 97
   size: 426, 389
   orig: 490, 418
   offset: 47, 0
   index: -1
 key
   rotate: false
-  xy: 1327, 166
+  xy: 2525, 10
   size: 367, 202
   orig: 400, 253
   offset: 22, 27
   index: -1
+medicine
+  rotate: false
+  xy: 2609, 482
+  size: 136, 200
+  orig: 137, 200
+  offset: 1, 0
+  index: -1
 worm
   rotate: false
-  xy: 1327, 370
+  xy: 2150, 74
   size: 373, 116
   orig: 400, 200
   offset: 8, 38
   index: -1
 worm_cooked
   rotate: false
-  xy: 2113, 68
+  xy: 429, 26
   size: 400, 74
   orig: 400, 200
   offset: 0, 22
