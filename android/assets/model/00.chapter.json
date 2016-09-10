@@ -16,6 +16,95 @@ scenes: {
 			}
 		],
 		actors: {
+			bed: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "bed",
+				bbox: [ -75.60498, 73.18469, -100, 200, 39.01294, 221.3457, 78.65454, 121.97455 ],
+				pos: {
+					x: 1939.394,
+					y: 658.6621
+				},
+				visible: true,
+				desc: "@ruby_map.bed.desc___",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					"pickup.empty": {
+						id: "pickup",
+						target: null,
+						state: "empty",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "ruby",
+								target: "bed",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "ruby_map#bed",
+								state: "full"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@ruby_map.bed.pickup.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					"pickup.full": {
+						id: "pickup",
+						target: null,
+						state: "full",
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "ruby",
+								target: "house",
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SetStateAction",
+								actor: "ruby_map#bed",
+								state: "empty"
+							},
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@ruby_map.bed.pickup.full.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					},
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "ruby",
+								text: "@ruby_map.bed.lookat.0.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: "empty",
+				zIndex: 0,
+				layer: "foreground"
+			},
 			spiky_ball: {
 				class: "com.bladecoder.engine.model.InteractiveActor",
 				id: "spiky_ball",
@@ -25,7 +114,7 @@ scenes: {
 					y: 88.43146
 				},
 				visible: true,
-				desc: "@ruby_map.spiky_ball.desc",
+				desc: "@ruby_map.spiky_ball.desc_",
 				sounds: null,
 				refPoint: {},
 				verbs: {
@@ -100,6 +189,12 @@ scenes: {
 						state: null,
 						icon: null,
 						actions: [
+							{
+								class: "com.bladecoder.engine.actions.GotoAction",
+								actor: "ruby",
+								target: "grassy_field",
+								wait: true
+							},
 							{
 								class: "com.bladecoder.engine.actions.SayAction",
 								actor: "$PLAYER",
@@ -222,6 +317,41 @@ scenes: {
 				tint: null,
 				depthType: "NONE",
 				bboxFromRenderer: true
+			},
+			house: {
+				class: "com.bladecoder.engine.model.InteractiveActor",
+				id: "house",
+				bbox: [ -48.160645, -30.49353, -133.54297, 157.30884, -235.42969, 364.6654, -46.369385, 350.6767, 54.021484, 286.95178, 213.53198, 99.14368 ],
+				pos: {
+					x: 2171.1455,
+					y: 609.8724
+				},
+				visible: true,
+				desc: "@ruby_map.house.desc",
+				sounds: null,
+				refPoint: {},
+				verbs: {
+					lookat: {
+						id: "lookat",
+						target: null,
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "ruby",
+								text: "@ruby_map.house.lookat.0.text",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							}
+						]
+					}
+				},
+				interaction: true,
+				state: null,
+				zIndex: 0,
+				layer: "foreground"
 			},
 			ruby: {
 				class: "com.bladecoder.engine.model.CharacterActor",
