@@ -1,149 +1,117 @@
 
 inventory.png
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-size: 2893,1077
-=======
-size: 3294,940
->>>>>>> fish
+size: 3320,945
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 00 hay
   rotate: false
-  xy: 1277, 102
+  xy: 1277, 107
   size: 376, 247
   orig: 400, 349
   offset: 2, 42
   index: -1
 01 ticket
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 2386, 214
-=======
-  xy: 3072, 218
->>>>>>> fish
+  xy: 3098, 231
   size: 221, 319
   orig: 252, 378
   offset: 0, 17
   index: -1
 02 money
   rotate: false
-  xy: 2319, 4
+  xy: 2982, 552
   size: 273, 392
   orig: 346, 506
   offset: 16, 38
   index: -1
 03 fishingpole
   rotate: false
-  xy: 849, 1
+  xy: 849, 6
   size: 426, 348
   orig: 490, 418
   offset: 47, 41
   index: -1
 bag
   rotate: false
-  xy: 1718, 398
+  xy: 1718, 403
   size: 867, 541
   orig: 886, 678
   offset: 0, 39
   index: -1
 bag_goods
   rotate: false
-  xy: 1, 214
+  xy: 1, 219
   size: 846, 725
   orig: 863, 747
   offset: 4, 7
   index: -1
 bag_sand
   rotate: false
-  xy: 849, 351
+  xy: 849, 356
   size: 867, 588
   orig: 886, 800
   offset: 0, 39
   index: -1
 carrot
   rotate: false
-  xy: 2594, 12
+  xy: 2620, 17
   size: 476, 413
   orig: 500, 438
   offset: 11, 25
   index: -1
 fake_money
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 2150, 192
-=======
-  xy: 1655, 8
->>>>>>> fish
+  xy: 2384, 60
   size: 234, 341
   orig: 240, 348
   offset: 6, 0
   index: -1
 fake_ticket
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 1755, 21
-=======
-  xy: 2587, 427
->>>>>>> fish
+  xy: 2587, 432
   size: 393, 512
   orig: 428, 536
   offset: 21, 14
   index: -1
 fish
   rotate: false
-  xy: 2982, 539
+  xy: 2146, 1
   size: 236, 400
   orig: 236, 400
   offset: 0, 0
   index: -1
 fishingpole_worm
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 1327, 97
-=======
-  xy: 1891, 7
->>>>>>> fish
+  xy: 1718, 12
   size: 426, 389
   orig: 490, 418
   offset: 47, 0
   index: -1
 key
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 2525, 10
-=======
-  xy: 1, 10
->>>>>>> fish
+  xy: 1, 15
   size: 367, 202
   orig: 400, 253
   offset: 22, 27
   index: -1
 medicine
   rotate: false
-  xy: 2609, 482
+  xy: 3098, 29
   size: 136, 200
   orig: 137, 200
   offset: 1, 0
   index: -1
 worm
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 2150, 74
-=======
-  xy: 370, 96
->>>>>>> fish
+  xy: 370, 101
   size: 373, 116
   orig: 400, 200
   offset: 8, 38
   index: -1
 worm_cooked
   rotate: false
-<<<<<<< 2599c491fd2037c8d691d67f53860e0668d72eda
-  xy: 429, 26
-=======
-  xy: 370, 20
->>>>>>> fish
+  xy: 1277, 31
   size: 400, 74
   orig: 400, 200
   offset: 0, 22
