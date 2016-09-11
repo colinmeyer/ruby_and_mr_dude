@@ -306,7 +306,7 @@ scenes: {
 							id: "stand.left",
 							source: "mrdude",
 							duration: 1,
-							animationType: "NO_REPEAT",
+							animationType: "YOYO",
 							count: -1,
 							preload: true
 						}
@@ -679,7 +679,7 @@ scenes: {
 								class: "com.bladecoder.engine.actions.TextAction",
 								text: "@inside_home.worm.use.fishing_pole.0.text",
 								style: "default",
-								color: "ff888800",
+								color: "ff8888ff",
 								type: "SUBTITLE",
 								queue: false,
 								wait: true
@@ -2638,6 +2638,30 @@ scenes: {
 							}
 						]
 					},
+					"use.sea": {
+						id: "use",
+						target: "sea",
+						state: null,
+						icon: null,
+						actions: [
+							{
+								class: "com.bladecoder.engine.actions.TextAction",
+								text: "@map.fishing_pole.use.sea.0.text",
+								style: "default",
+								type: "SUBTITLE",
+								queue: false,
+								wait: true
+							},
+							{
+								class: "com.bladecoder.engine.actions.SayAction",
+								actor: "$PLAYER",
+								text: "@map.fishing_pole.use.sea.1.text",
+								type: "TALK",
+								queue: false,
+								wait: true
+							}
+						]
+					},
 					lookat: {
 						id: "lookat",
 						target: null,
@@ -2669,6 +2693,13 @@ scenes: {
 								wait: true
 							}
 						]
+					},
+					"use.sea.worm": {
+						id: "use",
+						target: "sea",
+						state: "worm",
+						icon: null,
+						actions: []
 					}
 				},
 				interaction: true,
@@ -2806,6 +2837,42 @@ scenes: {
 				state: null,
 				zIndex: 0,
 				layer: "foreground"
+			},
+			fish: {
+				class: "com.bladecoder.engine.model.SpriteActor",
+				id: "fish",
+				bbox: [ -216, 0, -216, 732, 216, 732, 216, 0 ],
+				pos: {
+					x: 1564.7063,
+					y: -966.8904
+				},
+				visible: false,
+				desc: null,
+				sounds: null,
+				refPoint: {},
+				verbs: {},
+				interaction: false,
+				state: null,
+				zIndex: 0,
+				layer: "foreground",
+				renderer: {
+					class: "com.bladecoder.engine.model.AtlasRenderer",
+					fanims: {
+						fish: {
+							id: "fish",
+							source: "inventory",
+							duration: 1,
+							animationType: "NO_REPEAT",
+							count: -1,
+							preload: true
+						}
+					},
+					initAnimation: "fish"
+				},
+				scale: 1,
+				tint: null,
+				depthType: "NONE",
+				bboxFromRenderer: true
 			},
 			ruby_portal: {
 				class: "com.bladecoder.engine.model.SpriteActor",
