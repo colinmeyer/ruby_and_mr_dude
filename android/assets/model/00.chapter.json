@@ -399,7 +399,13 @@ scenes: {
 				},
 				visible: true,
 				desc: null,
-				sounds: null,
+				sounds: {
+					flutter: {
+						id: "flutter",
+						filename: "Butterfly-SoundBible.com-1530156556.mp3",
+						preload: true
+					}
+				},
 				refPoint: {},
 				verbs: {},
 				interaction: false,
@@ -431,6 +437,7 @@ scenes: {
 							duration: 1,
 							animationType: "REPEAT",
 							count: -1,
+							sound: "flutter",
 							preload: true
 						}
 					},
