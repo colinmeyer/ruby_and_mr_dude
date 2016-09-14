@@ -402,7 +402,8 @@ scenes: {
 				sounds: {
 					flutter: {
 						id: "flutter",
-						filename: "Butterfly-SoundBible.com-1530156556.mp3",
+						loop: true,
+						filename: "butterfly.mp3",
 						preload: true
 					}
 				},
@@ -1105,7 +1106,7 @@ scenes: {
 			hay_bundle: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "hay_bundle",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -200, 0, -200, 349, 200, 349, 200, 0 ],
 				pos: {
 					x: 170.55396,
 					y: -398.05164
@@ -1547,14 +1548,21 @@ scenes: {
 			mrdude: {
 				class: "com.bladecoder.engine.model.CharacterActor",
 				id: "mrdude",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -175, 0, -175, 400, 175, 400, 175, 0 ],
 				pos: {
 					x: 2332.2888,
 					y: 1230.7682
 				},
 				visible: true,
 				desc: "@map.mrdude.desc_",
-				sounds: null,
+				sounds: {
+					steps: {
+						id: "steps",
+						loop: true,
+						filename: "steps.mp3",
+						preload: true
+					}
+				},
 				refPoint: {},
 				verbs: {},
 				interaction: false,
@@ -1586,6 +1594,7 @@ scenes: {
 							duration: 0.5,
 							animationType: "REPEAT",
 							count: -1,
+							sound: "steps",
 							preload: true
 						}
 					},
@@ -1602,7 +1611,7 @@ scenes: {
 			fake_money: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fake_money",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -120, 0, -120, 348, 120, 348, 120, 0 ],
 				pos: {
 					x: 663.7348,
 					y: -869.57666
@@ -1638,7 +1647,7 @@ scenes: {
 			ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "ticket",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -126, 0, -126, 378, 126, 378, 126, 0 ],
 				pos: {
 					x: 628.6893,
 					y: -425.20715
@@ -1737,7 +1746,7 @@ scenes: {
 			housekey: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "housekey",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -200, 0, -200, 253, 200, 253, 200, 0 ],
 				pos: {
 					x: 2061.483,
 					y: -308.7312
@@ -1839,7 +1848,7 @@ scenes: {
 			bag: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "bag",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -443, 0, -443, 678, 443, 678, 443, 0 ],
 				pos: {
 					x: 2277.5366,
 					y: -1133.3575
@@ -2046,7 +2055,7 @@ scenes: {
 			fake_ticket: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fake_ticket",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -214, 0, -214, 536, 214, 536, 214, 0 ],
 				pos: {
 					x: 1159.4354,
 					y: -1134.2301
@@ -2384,7 +2393,7 @@ scenes: {
 			money: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "money",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -173, 0, -173, 506, 173, 506, 173, 0 ],
 				pos: {
 					x: 1011.9854,
 					y: -532.33203
@@ -2612,7 +2621,7 @@ scenes: {
 			fishing_pole: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fishing_pole",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -245, 0, -245, 418, 245, 418, 245, 0 ],
 				pos: {
 					x: 222.6452,
 					y: -903.1831
@@ -2841,7 +2850,7 @@ scenes: {
 			fish: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "fish",
-				bbox: [ -216, 0, -216, 732, 216, 732, 216, 0 ],
+				bbox: [ -118, 0, -118, 400, 118, 400, 118, 0 ],
 				pos: {
 					x: 1564.7063,
 					y: -966.8904
@@ -2877,7 +2886,7 @@ scenes: {
 			ruby_portal: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "ruby_portal",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -368.5, 0, -368.5, 654, 368.5, 654, 368.5, 0 ],
 				pos: {
 					x: 2764.0156,
 					y: 1904.7826
@@ -2948,7 +2957,7 @@ scenes: {
 			carrot: {
 				class: "com.bladecoder.engine.model.SpriteActor",
 				id: "carrot",
-				bbox: [ -100, 0, -100, 200, 100, 200, 100, 0 ],
+				bbox: [ -250, 0, -250, 438, 250, 438, 250, 0 ],
 				pos: {
 					x: 1528.5566,
 					y: -489.3797
