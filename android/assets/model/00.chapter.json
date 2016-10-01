@@ -461,7 +461,7 @@ scenes: {
 		backgroundAtlas: "ruby_map",
 		backgroundRegionId: "map",
 		musicDesc: {
-			filename: "ruby_map_music.mp3",
+			filename: "Ruby and Mr Dude soundtrack.mp3",
 			loop: true,
 			initialDelay: 0.5,
 			volume: 0.5
@@ -3069,7 +3069,10 @@ scenes: {
 		},
 		backgroundAtlas: "map",
 		backgroundRegionId: "map_redone",
-		musicDesc: null,
+		musicDesc: {
+			filename: "Ruby and Mr Dude soundtrack.mp3",
+			loop: true
+		},
 		polygonalNavGraph: {
 			walkZone: {
 				localVertices: [ 629.2677, 198.82808, 757.8795, 1767.9641, 3835.7988, 1769.3207, 3831.5984, 75.61542 ],
