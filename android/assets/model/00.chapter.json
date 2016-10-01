@@ -402,7 +402,8 @@ scenes: {
 				sounds: {
 					flutter: {
 						id: "flutter",
-						filename: "Butterfly-SoundBible.com-1530156556.mp3",
+						loop: true,
+						filename: "butterfly.mp3",
 						preload: true
 					}
 				},
@@ -1554,7 +1555,14 @@ scenes: {
 				},
 				visible: true,
 				desc: "@map.mrdude.desc_",
-				sounds: null,
+				sounds: {
+					steps: {
+						id: "steps",
+						loop: true,
+						filename: "steps.mp3",
+						preload: true
+					}
+				},
 				refPoint: {},
 				verbs: {},
 				interaction: false,
@@ -1586,6 +1594,7 @@ scenes: {
 							duration: 0.5,
 							animationType: "REPEAT",
 							count: -1,
+							sound: "steps",
 							preload: true
 						}
 					},
